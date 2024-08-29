@@ -9,8 +9,9 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
+        $tasks = Task::orderByDueDate()->get();
+        $allTasks = Task::all();
+        return view('tasks.index', compact('tasks', 'allTasks'));
     }
 
     public function store(Request $request)
@@ -36,4 +37,13 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index');
     }
+
+    public function filterByTag($tag)
+{
+    $tasks = Task::where('tag', $tag)->get();
+
+    $allTasks = Task::all();
+    $selectedTag = $tag;
+    return view('tasks.index', compact('tasks', 'selectedTag', 'allTasks'));
+}
 }

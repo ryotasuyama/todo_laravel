@@ -14,4 +14,8 @@ class Task extends Model
         'due_date',
         'task_content',
     ];
+    public function scopeOrderByDueDate($query)
+    {
+        return $query->orderBy('due_date', 'asc');
+    }
 }
