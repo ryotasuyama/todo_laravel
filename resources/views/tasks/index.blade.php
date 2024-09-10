@@ -1,5 +1,3 @@
-<!-- resources/views/tasks/index.blade.php -->
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -37,6 +35,10 @@
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">タスクを追加</button>
             </div>
         </form>
+
+        <div class="mb-6">
+            <a href="{{ route('es_entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">ES管理</a>
+        </div>
 
         <div class="mb-6">
             <h2 class="text-lg font-bold">タグで絞り込み:</h2>
