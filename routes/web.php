@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\EsEntryController;
+use App\Http\Controllers\EntryController;
+
 
 Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
@@ -15,3 +17,5 @@ Route::delete('/es-entries/{id}', [EsEntryController::class, 'destroy'])->name('
 
 Route::get('/es-entries/{id}/edit', [EsEntryController::class, 'edit'])->name('es_entries.edit');
 Route::put('/es-entries/{id}', [EsEntryController::class, 'update'])->name('es_entries.update');
+
+Route::resource('entries', EntryController::class);

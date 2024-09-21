@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EsEntry extends Model
+class Entry extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'tag',
-        'new_tag',
-        'title',
-        'content'
+        'company_name',
+        'status',
+        'applied_at',
+        'memo'
     ];
 }

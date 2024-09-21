@@ -1,5 +1,3 @@
-<!-- resources/views/es_entries/index.blade.php -->
-
 <!DOCTYPE html>
 <html lang="ja">
 
