@@ -9,12 +9,9 @@
 </head>
 
 <body class="bg-gray-100 font-sans mx-5 my-4">
+    @include('layouts.header')
     <div class="container mx-auto p-4">
-        <div class="mb-6">
-            <a href="{{ route('tasks.index') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">戻る</a>
-        </div>
-
-        <h1 class="text-3xl font-bold mt-5 mb-8">エントリーシート管理</h1>
+        <h1 class="text-xl font-bold mt-5 mb-8">エントリーシート管理</h1>
 
         <form action="{{ route('es_entries.store') }}" method="POST" class="mb-6">
             @csrf

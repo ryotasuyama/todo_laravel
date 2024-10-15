@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\EsEntryController;
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\HomeController;
+
 
 
 Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
@@ -19,3 +21,5 @@ Route::get('/es-entries/{id}/edit', [EsEntryController::class, 'edit'])->name('e
 Route::put('/es-entries/{id}', [EsEntryController::class, 'update'])->name('es_entries.update');
 
 Route::resource('entries', EntryController::class);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');

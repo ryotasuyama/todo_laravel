@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>就活管理アプリ</title>
+    <title>タスク管理</title>
     @vite('resources/css/app.css')
 </head>
 
 <body class="bg-gray-100 font-sans mx-5 my-4">
+    @include('layouts.header')
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mt-5 mb-8">タスク管理</h1>
+        <h1 class="text-xl font-bold mt-5 mb-8">タスク管理</h1>
 
         <form action="{{ route('tasks.store') }}" method="POST" class="mb-6">
             @csrf
@@ -38,7 +39,7 @@
 
         <div class="mb-6">
             <a href="{{ route('es_entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">ES管理</a>
-            <a href="{{ route('entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">応募管理</a> 
+            <a href="{{ route('entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">応募管理</a>
         </div>
 
         <div class="mb-6">
