@@ -25,14 +25,24 @@
                     <label for="status" class="block text-sm font-medium text-gray-700">ステータス</label>
                     <select name="status" id="status" class="form-select mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
                         <option value="エントリー済み">エントリー済み</option>
-                        <option value="書類選考中">書類選考中</option>
+                        <option value="書類通過">書類通過</option>
+                        <option value="webテスト通過">webテスト通過</option>
                         <option value="一次面接済み">一次面接済み</option>
+                        <option value="GD面接済み">GD面接済み</option>
+                        <option value="ケース面接済み">ケース面接済み</option>
+                        <option value="二次面接済み">二次面接済み</option>
+                        <option value="三次面接済み">三次面接済み</option>
+                        <option value="最終面接済み">最終面接済み</option>
                         <option value="内定">内定</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="applied_at" class="block text-sm font-medium text-gray-700">エントリー日</label>
-                    <input type="date" name="applied_at" id="applied_at" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <label for="next_interview_date" class="block text-sm font-medium text-gray-700">次回選考日</label>
+                    <input type="date" name="next_interview_date" id="next_interview_date" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="result_notification_date" class="block text-sm font-medium text-gray-700">合否通知日</label>
+                    <input type="date" name="result_notification_date" id="result_notification_date" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md">
                 </div>
                 <div class="mb-4">
                     <label for="memo" class="block text-sm font-medium text-gray-700">メモ</label>
@@ -60,7 +70,8 @@
                 <div>
                     <h2 class="text-lg font-semibold">{{ $entry->company_name }}</h2>
                     <p class="text-gray-500">{{ $entry->status }}</p>
-                    <p class="text-gray-500">エントリー日: {{ $entry->applied_at }}</p>
+                    <p class="text-gray-500">次回選考日: {{ $entry->next_interview_date ?? '未設定' }}</p>
+                    <p class="text-gray-500">合否通知日: {{ $entry->result_notification_date ?? '未設定' }}</p>
                     <p class="text-gray-500">メモ: {{ $entry->memo }}</p>
                 </div>
                 <div class="flex space-x-2">

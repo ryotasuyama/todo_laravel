@@ -10,7 +10,7 @@ class EntryController extends Controller
     public function index(Request $request)
     {
         $status = $request->input('status');
-        
+
         $entries = Entry::when($status, function ($query, $status) {
             return $query->where('status', $status);
         })->get();
@@ -29,7 +29,8 @@ class EntryController extends Controller
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'applied_at' => 'nullable|date',
+            'next_interview_date' => 'nullable|date',
+            'result_notification_date' => 'nullable|date',
             'memo' => 'nullable|string',
         ]);
 
@@ -50,7 +51,8 @@ class EntryController extends Controller
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'status' => 'required|string|max:255',
-            'applied_at' => 'nullable|date',
+            'next_interview_date' => 'nullable|date', 
+            'result_notification_date' => 'nullable|date',
             'memo' => 'nullable|string',
         ]);
 
@@ -61,7 +63,6 @@ class EntryController extends Controller
 
     public function destroy(Entry $entry)
     {
-        // エントリーを削除
         $entry->delete();
 
         return redirect()->route('entries.index')->with('success', 'エントリーを削除しました');
