@@ -13,9 +13,9 @@
     @include('layouts.header')
 
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mt-5 mb-10">ホーム画面</h1>
+        <h1 class="text-3xl font-bold mt-5 mb-8">ホーム画面</h1>
 
-        <h2 class="text-2xl font-semibold mb-4">追加されたタスク一覧</h2>
+        <h2 class="text-2xl font-semibold mb-4">タスク一覧</h2>
         <div class="bg-white p-4 rounded shadow mb-6">
             @if($tasks->isEmpty())
             <p>タスクがまだ追加されていません。</p>
@@ -37,7 +37,7 @@
             @endif
         </div>
 
-        <h2 class="text-2xl font-semibold mb-6">エントリー中の企業一覧</h2>
+        <h2 class="text-2xl font-semibold mb-6">企業一覧</h2>
         <div class="bg-white p-4 rounded shadow">
             @if($entries->isEmpty())
             <p>エントリー中の企業がまだありません。</p>

@@ -16,14 +16,14 @@
         <form action="{{ route('es_entries.store') }}" method="POST" class="mb-6">
             @csrf
             <div class="mb-4">
-                <label for="tag" class="block text-sm font-medium text-gray-700">企業タグ</label>
+                <label for="tag" class="block text-sm font-medium text-gray-700">カテゴリ</label>
                 <select name="tag" id="tag" class="form-select mt-1 block w-full p-2 border border-gray-300 rounded-md">
-                    <option value="" selected>タグを選択</option>
+                    <option value="" selected>カテゴリを選択</option>
                     @foreach ($tags as $tag)
                     <option value="{{ $tag }}">{{ $tag }}</option>
                     @endforeach
                 </select>
-                <input type="text" name="new_tag" class="form-control mt-2" placeholder="新しいタグを入力">
+                <input type="text" name="new_tag" class="form-control mt-2" placeholder="新しいカテゴリを入力">
             </div>
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700">タイトル</label>
@@ -40,7 +40,7 @@
         </form>
 
         <div class="mb-6">
-            <h2 class="text-lg font-bold">タグで絞り込み:</h2>
+            <h2 class="text-lg font-bold">カテゴリで絞り込み:</h2>
             <div class="flex space-x-4 mt-2">
                 <a href="{{ route('es_entries.index') }}" class="{{ !isset($filter_tag) ? 'font-bold underline' : '' }}">すべて</a>
                 @foreach ($tags as $availableTag)

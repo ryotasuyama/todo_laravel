@@ -12,7 +12,18 @@ class Entry extends Model
     protected $fillable = [
         'company_name',
         'status',
-        'applied_at',
+        'next_interview_date',
+        'result_notification_date',
         'memo'
     ];
+
+    public function getNextSelectionDate()
+    {
+        return $this->next_selection_date;
+    }
+
+    public function getResultNotificationDate()
+    {
+        return $this->result_notification_date;
+    }
 }

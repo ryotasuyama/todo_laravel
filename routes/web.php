@@ -5,6 +5,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\EsEntryController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CalendarController;
 
 
 
@@ -23,3 +24,6 @@ Route::put('/es-entries/{id}', [EsEntryController::class, 'update'])->name('es_e
 Route::resource('entries', EntryController::class);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+

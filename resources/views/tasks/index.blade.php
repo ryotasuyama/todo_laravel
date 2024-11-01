@@ -38,11 +38,6 @@
         </form>
 
         <div class="mb-6">
-            <a href="{{ route('es_entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">ES管理</a>
-            <a href="{{ route('entries.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded mt-4 hover:bg-gray-600">応募管理</a>
-        </div>
-
-        <div class="mb-6">
             <h2 class="text-lg font-bold">タグで絞り込み:</h2>
             <div class="flex space-x-4 mt-2">
                 <a href="{{ route('tasks.index') }}" class="{{ !isset($selectedTag) ? 'font-bold underline' : '' }}">すべて</a>

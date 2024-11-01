@@ -18,4 +18,9 @@ class Task extends Model
     {
         return $query->orderBy('due_date', 'asc');
     }
+    
+    public function getTaskDate()
+    {
+        return $this->due_date;
+    }
 }

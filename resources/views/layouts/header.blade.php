@@ -4,6 +4,7 @@
 
         <ul class="flex space-x-4">
             <li><a href="{{ route('home') }}" class="text-black hover:underline">ホーム</a></li>
+            <li><a href="{{ route('calendar.index') }}" class="text-black hover:underline">カレンダー</a></li>
             <li><a href="{{ route('tasks.index') }}" class="text-black hover:underline">タスク管理</a></li>
             <li><a href="{{ route('es_entries.index') }}" class="text-black hover:underline">ES管理</a></li>
             <li><a href="{{ route('entries.index') }}" class="text-black hover:underline">応募管理</a></li>

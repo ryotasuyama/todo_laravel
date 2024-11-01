@@ -9,6 +9,7 @@
 </head>
 
 <body class="bg-gray-100 font-sans mx-5 my-4">
+    
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mt-5 mb-8">企業エントリー編集</h1>
 
