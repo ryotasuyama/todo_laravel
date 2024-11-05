@@ -13,7 +13,7 @@
     @include('layouts.header')
 
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mt-5 mb-8">ホーム画面</h1>
+        <h1 class="text-3xl font-bold mt-5 mb-8">home画面</h1>
 
         <h2 class="text-2xl font-semibold mb-4">タスク一覧</h2>
         <div class="bg-white p-4 rounded shadow mb-6">
