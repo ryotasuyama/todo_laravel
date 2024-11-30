@@ -7,11 +7,22 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::orderByDueDate()->get();
-        $allTasks = Task::all();
-        return view('tasks.index', compact('tasks', 'allTasks'));
+        $selectedTag = $request->get('tag');
+
+        if ($selectedTag) {
+            $tasks = Task::where('tag', $selectedTag)
+                ->orderBy('due_date', 'asc')
+                ->get();
+        } else {
+            $tasks = Task::orderBy('due_date', 'asc')
+                ->get();
+        }
+
+        $allTags = Task::pluck('tag')->unique();
+
+        return view('tasks.index', compact('tasks', 'selectedTag', 'allTags'));
     }
 
     public function store(Request $request)
@@ -39,11 +50,11 @@ class TaskController extends Controller
     }
 
     public function filterByTag($tag)
-{
-    $tasks = Task::where('tag', $tag)->get();
+    {
+        $tasks = Task::where('tag', $tag)->get();
 
-    $allTasks = Task::all();
-    $selectedTag = $tag;
-    return view('tasks.index', compact('tasks', 'selectedTag', 'allTasks'));
-}
+        $allTasks = Task::all();
+        $selectedTag = $tag;
+        return view('tasks.index', compact('tasks', 'selectedTag', 'allTasks'));
+    }
 }

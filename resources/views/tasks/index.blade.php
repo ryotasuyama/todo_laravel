@@ -39,32 +39,19 @@
 
         <div class="mb-6">
             <h2 class="text-lg font-bold">タグで絞り込み:</h2>
-            <div class="flex space-x-4 mt-2">
-                <a href="{{ route('tasks.index') }}" class="{{ !isset($selectedTag) ? 'font-bold underline' : '' }}">すべて</a>
-                @foreach ($allTasks->pluck('tag')->unique() as $availableTag)
-                <a href="{{ route('tasks.filterByTag', $availableTag) }}" class="{{ isset($selectedTag) && $selectedTag === $availableTag ? 'font-bold underline' : '' }}">
-                    {{ $availableTag }}
-                </a>
-                @endforeach
-            </div>
+            <form action="{{ route('tasks.index') }}" method="GET" class="mb-6">
+                <select name="tag" class="form-select p-2 border">
+                    <option value="">全てのタグ</option>
+                    @foreach ($allTags as $tag)
+                    <option value="{{ $tag }}" {{ $selectedTag === $tag ? 'selected' : '' }}>{{ $tag }}</option>
+                    @endforeach
+                </select>
+                <button type="submit">絞り込む</button>
+            </form>
         </div>
 
-        <div class="bg-white p-4 rounded shadow">
-            @foreach ($tasks as $task)
-            <div class="flex justify-between items-center mb-4 pb-2">
-                <div>
-                    <span class="font-semibold text-lg">{{ $task->task_content }}</span> -
-                    <span class="text-gray-500">{{ $task->due_date }}</span> -
-                    <span class="text-gray-700">{{ $task->tag }}</span>
-                </div>
-                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">削除</button>
-                </form>
-            </div>
-            @endforeach
-        </div>
+        @include('layouts.task_list')
+
     </div>
 </body>
 

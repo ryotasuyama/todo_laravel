@@ -9,13 +9,21 @@ class EntryController extends Controller
 {
     public function index(Request $request)
     {
-        $status = $request->input('status');
+        $filter_status = $request->input('status');
+        if ($filter_status) {
+            $entries = Entry::where('status', $filter_status)->get();
+        }else{
+            $entries = Entry::all();
+        }
 
-        $entries = Entry::when($status, function ($query, $status) {
-            return $query->where('status', $status);
-        })->get();
+        $status = Entry::pluck('status')->unique();
 
-        return view('entries.index', compact('entries', 'status'));
+        return view('entries.index', compact('entries', 'filter_status', 'status'));
+        // $entries = Entry::when($status, function ($query, $status) {
+        //     return $query->where('status', $status);
+        // })->get();
+
+        // return view('entries.index', compact('entries', 'status'));
     }
 
     public function create()
