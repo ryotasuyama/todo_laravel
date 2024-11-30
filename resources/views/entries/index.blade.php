@@ -54,37 +54,22 @@
             </form>
         </div>
 
-        <form action="{{ route('entries.index') }}" method="GET" class="mb-6">
-            <select name="status" onchange="this.form.submit()" class="form-select p-2 border">
-                <option value="">全てのステータス</option>
-                <option value="エントリー済み" {{ request('status') == 'エントリー済み' ? 'selected' : '' }}>エントリー済み</option>
-                <option value="書類選考中" {{ request('status') == '書類選考中' ? 'selected' : '' }}>書類選考中</option>
-                <option value="一次面接済み" {{ request('status') == '一次面接済み' ? 'selected' : '' }}>一次面接済み</option>
-                <option value="内定" {{ request('status') == '内定' ? 'selected' : '' }}>内定</option>
-            </select>
-        </form>
-
-        <div class="bg-white p-4 rounded shadow">
-            @foreach ($entries as $entry)
-            <div class="flex justify-between items-center mb-4 p-4 border-b border-gray-200">
-                <div>
-                    <h2 class="text-lg font-semibold">{{ $entry->company_name }}</h2>
-                    <p class="text-gray-500">{{ $entry->status }}</p>
-                    <p class="text-gray-500">次回選考日: {{ $entry->next_interview_date ?? '未設定' }}</p>
-                    <p class="text-gray-500">合否通知日: {{ $entry->result_notification_date ?? '未設定' }}</p>
-                    <p class="text-gray-500">メモ: {{ $entry->memo }}</p>
-                </div>
-                <div class="flex space-x-2">
-                    <a href="{{ route('entries.edit', $entry->id) }}" class="bg-yellow-500 text-white px-4 py-2 rounded">編集</a>
-                    <form action="{{ route('entries.destroy', $entry->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">削除</button>
-                    </form>
-                </div>
+        <div class="mb-6">
+            <h2 class="text-lg font-bold">ステータスで絞り込み:</h2>
+            <div class="flex space-x-4 mt-2">
+                <a href="{{ route('entries.index') }}" class="{{ !isset($filter_status) ? 'font-bold underline' : '' }}">すべて</a>
+                @foreach ($status as $availableStatus)
+                <a href="{{ route('entries.index', ['status' => $availableStatus]) }}" class="
+                {{ isset($filter_status) && $filter_status === $availableStatus ? 'font-bold underline' : '' }}">
+                    {{ $availableStatus }}
+                </a>
+                @endforeach
             </div>
-            @endforeach
         </div>
+
+        @include('layouts.entry_list')
+
     </div>
 </body>
+
 </html>

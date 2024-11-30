@@ -10,9 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // すべてのタスクとエントリー中の企業を取得
-        $tasks = Task::all();  // タスクの一覧を取得
-        $entries = Entry::all();  // エントリー中の企業の一覧を取得
+        $tasks = Task::orderByDueDate()->get();
+        $entries = Entry::all(); 
 
         return view('home', compact('tasks', 'entries'));
     }

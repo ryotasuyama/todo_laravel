@@ -44,7 +44,8 @@
             <div class="flex space-x-4 mt-2">
                 <a href="{{ route('es_entries.index') }}" class="{{ !isset($filter_tag) ? 'font-bold underline' : '' }}">すべて</a>
                 @foreach ($tags as $availableTag)
-                <a href="{{ route('es_entries.index', ['tag' => $availableTag]) }}" class="{{ isset($filter_tag) && $filter_tag === $availableTag ? 'font-bold underline' : '' }}">
+                <a href="{{ route('es_entries.index', ['tag' => $availableTag]) }}" class="
+                {{ isset($filter_tag) && $filter_tag === $availableTag ? 'font-bold underline' : '' }}">
                     {{ $availableTag }}
                 </a>
                 @endforeach
