@@ -19,13 +19,8 @@ class EntryController extends Controller
         $status = Entry::pluck('status')->unique();
 
         return view('entries.index', compact('entries', 'filter_status', 'status'));
-        // $entries = Entry::when($status, function ($query, $status) {
-        //     return $query->where('status', $status);
-        // })->get();
-
-        // return view('entries.index', compact('entries', 'status'));
     }
-
+    
     public function create()
     {
         return view('entries.create');

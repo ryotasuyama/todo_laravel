@@ -46,7 +46,7 @@
                     <option value="{{ $tag }}" {{ $selectedTag === $tag ? 'selected' : '' }}>{{ $tag }}</option>
                     @endforeach
                 </select>
-                <button type="submit">絞り込む</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">絞り込む</button>
             </form>
         </div>
 
