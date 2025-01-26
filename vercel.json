@@ -27,7 +27,8 @@
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     },
-    "buildCommand": "composer install --no-dev && php artisan config:cache && npm ci && npm run build",
+    "buildCommand": "composer install --no-dev && php artisan config:cache && php artisan route:cache && php artisan view:cache && npm ci && npm run build",
     "outputDirectory": "public",
+    "devCommand": "php artisan serve",
     "public": true
 }
