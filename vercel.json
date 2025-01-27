@@ -2,7 +2,11 @@
     "version": 2,
     "functions": {
         "api/*.php": {
-            "runtime": "vercel-php@0.6.0"
+            "runtime": "vercel-php@0.7.0",
+            "memory": 1024,
+            "maxDuration": 60,
+            "excludeFiles": "{**/*.md,**/*.dist}",
+            "runtime-version": "8.1"
         }
     },
     "routes": [
@@ -35,7 +39,7 @@
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     },
-    "buildCommand": "npm install && npm run build",
+    "buildCommand": "cp -r vendor api/ && npm install && npm run build",
     "outputDirectory": "public",
     "devCommand": "php artisan serve",
     "public": true
