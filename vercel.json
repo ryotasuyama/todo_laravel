@@ -7,6 +7,14 @@
     },
     "routes": [
         {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/(css|js)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
@@ -27,8 +35,8 @@
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     },
-    "buildCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build",
-    "outputDirectory": "public/build",
+    "buildCommand": "npm install && npm run build",
+    "outputDirectory": "public",
     "devCommand": "php artisan serve",
     "public": true
 }
