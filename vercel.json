@@ -27,8 +27,8 @@
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     },
-    "buildCommand": "npm ci && npm run build",
-    "outputDirectory": "public",
+    "buildCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build",
+    "outputDirectory": "public/build",
     "devCommand": "php artisan serve",
     "public": true
 }

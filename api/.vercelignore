@@ -1,1 +1,9 @@
 /vendor
+.env
+.env.*
+node_modules
+tests
+storage/*.key
+.git
+.idea
+.vscode
