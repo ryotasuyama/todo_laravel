@@ -13,7 +13,14 @@ class Task extends Model
         'tag',
         'due_date',
         'task_content',
+        'completed',
     ];
+
+    public function toggleCompleted()
+    {
+        $this->completed = !$this->completed;
+        $this->save();
+    }
     public function scopeOrderByDueDate($query)
     {
         return $query->orderBy('due_date', 'asc');

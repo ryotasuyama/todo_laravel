@@ -57,4 +57,12 @@ class TaskController extends Controller
         $selectedTag = $tag;
         return view('tasks.index', compact('tasks', 'selectedTag', 'allTasks'));
     }
+
+    public function toggleCompleted($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->toggleCompleted();
+        
+        return redirect()->back();
+    }
 }
