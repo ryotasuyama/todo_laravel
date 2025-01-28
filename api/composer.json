@@ -1,0 +1,12 @@
+{
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10.10",
+        "laravel/tinker": "^2.8"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
