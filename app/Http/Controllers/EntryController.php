@@ -32,6 +32,7 @@ class EntryController extends Controller
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+            'applied_at' => 'nullable|date',
             'next_interview_date' => 'nullable|date',
             'result_notification_date' => 'nullable|date',
             'memo' => 'nullable|string',
@@ -54,6 +55,7 @@ class EntryController extends Controller
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'status' => 'required|string|max:255',
+            'applied_at' => 'nullable|date',
             'next_interview_date' => 'nullable|date', 
             'result_notification_date' => 'nullable|date',
             'memo' => 'nullable|string',

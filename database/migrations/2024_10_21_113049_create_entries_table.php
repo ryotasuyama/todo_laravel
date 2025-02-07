@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('status');
+            $table->string('applied_at')->nullable();
             $table->date('next_interview_date')->nullable();
             $table->date('result_notification_date')->nullable();
             $table->text('memo')->nullable();

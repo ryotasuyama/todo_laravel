@@ -13,29 +13,31 @@
     <div class="container mx-auto p-4">
         <h1 class="text-xl font-bold mt-5 mb-8">タスク管理</h1>
 
-        <form action="{{ route('tasks.store') }}" method="POST" class="mb-6">
-            @csrf
-            <div class="mb-4">
-                <label for="tag" class="block text-sm font-medium text-gray-700">タグ</label>
-                <select name="tag" id="tag" class="form-select mt-1 block w-full p-2 border border-gray-300 rounded-md">
-                    <option value="大学">大学</option>
-                    <option value="就活">就活</option>
-                    <option value="バイト">バイト</option>
-                    <option value="その他">その他</option>
-                </select>
-            </div>
-            <div class="mb-4">
-                <label for="due_date" class="block text-sm font-medium text-gray-700">期日</label>
-                <input type="date" name="due_date" id="due_date" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
-            </div>
-            <div class="mb-4">
-                <label for="task_content" class="block text-sm font-medium text-gray-700">タスク内容</label>
-                <input type="text" name="task_content" id="task_content" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="タスク内容" required>
-            </div>
-            <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">タスクを追加</button>
-            </div>
-        </form>
+        <div class="bg-white p-6 rounded shadow mb-8">
+            <form action="{{ route('tasks.store') }}" method="POST" class="mb-6">
+                @csrf
+                <div class="mb-4">
+                    <label for="tag" class="block text-sm font-medium text-gray-700">タグ</label>
+                    <select name="tag" id="tag" class="form-select mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="大学">大学</option>
+                        <option value="就活">就活</option>
+                        <option value="バイト">バイト</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="due_date" class="block text-sm font-medium text-gray-700">期日</label>
+                    <input type="date" name="due_date" id="due_date" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="task_content" class="block text-sm font-medium text-gray-700">タスク内容</label>
+                    <input type="text" name="task_content" id="task_content" class="form-input mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="タスク内容" required>
+                </div>
+                <div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">タスクを追加</button>
+                </div>
+            </form>
+        </div>
 
         <div class="mb-6">
             <h2 class="text-lg font-bold">タグで絞り込み:</h2>
