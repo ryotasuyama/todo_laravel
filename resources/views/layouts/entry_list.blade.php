@@ -9,6 +9,8 @@
                 <h2 class="text-lg font-semibold">{{ $entry->company_name }}</h2>
                 <p class="text-gray-500">{{ $entry->status }}</p>
                 <p class="text-gray-500">エントリー日: {{ $entry->applied_at }}</p>
+                <p class="text-gray-500">次回選考日: {{ $entry->next_interview_date }}</p>
+                <p class="text-gray-500">合否通知日: {{ $entry->result_notification_date }}</p>
                 <p class="text-gray-500">メモ: {{ $entry->memo }}</p>
             </div>
             <div class="flex space-x-2">

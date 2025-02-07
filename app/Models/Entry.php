@@ -12,6 +12,7 @@ class Entry extends Model
     protected $fillable = [
         'company_name',
         'status',
+        'applied_at',
         'next_interview_date',
         'result_notification_date',
         'memo'
