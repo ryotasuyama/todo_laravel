@@ -14,7 +14,6 @@
         <h1 class="text-xl font-bold mt-5 mb-8">企業エントリー管理</h1>
 
         <div class="bg-white p-6 rounded shadow mb-8">
-            <h2 class="text-xl font-bold mb-4">新規エントリー追加</h2>
             <form action="{{ route('entries.store') }}" method="POST">
                 @csrf
                 <div class="mb-4">
